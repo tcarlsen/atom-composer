@@ -57,8 +57,6 @@ module.exports = Composer =
     firstRun = true
     [projectPath, ...] = atom.project.getPaths()
 
-    console.log composerPath
-
     childProcess = spawn composerPath, [command, '-d', projectPath]
     stdout = childProcess.stdout
     stderr = childProcess.stderr
