@@ -1,0 +1,16 @@
+{
+  "name": "composer",
+  "main": "./lib/composer",
+  "version": "0.1.0",
+  "description": "Run Composer within Atom",
+  "repository": "https://github.com/zimme/atom-composer",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-message-panel": "^1.2.0",
+    "byline": "^4.2.1",
+    "stringstream": "0.0.4"
+  }
+}
