@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'atom'
+fs = require 'fs'
 {LineStream} = require 'byline'
 {MessagePanelView, PlainMessageView} = require 'atom-message-panel'
 {spawn} = require 'child_process'
@@ -56,6 +57,9 @@ module.exports = Composer =
     composerPath = atom.config.get 'composer.composerPath'
     firstRun = true
     [projectPath, ...] = atom.project.getPaths()
+
+    projectPath ?= atom.config.get 'core.projectHome' or
+      fs.getHomeDirectory()
 
     childProcess = spawn composerPath, [command, '-d', projectPath]
     stdout = childProcess.stdout
