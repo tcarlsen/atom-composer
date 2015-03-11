@@ -65,24 +65,25 @@ module.exports = Composer =
     stdout = childProcess.stdout
     stderr = childProcess.stderr
 
+    onData = (data) =>
+      if firstRun
+        @composerView.clear()
+        firstRun = false
+
+      @composerView.attach()
+
+      if ~data.indexOf 'Downloading:'
+        [message,...] = @composerView.messages
+        @composerView.clear()
+        @composerView.add message
+
+      @composerView.add new PlainMessageView
+        message: data
+
     stdout.pipe new LineStream
       .pipe strs 'utf8'
-      .on 'data', (data) =>
-        if firstRun
-          @composerView.clear()
-          firstRun = false
-
-        @composerView.attach()
-
-        if ~data.indexOf 'Downloading:'
-          [message,...] = @composerView.messages
-          @composerView.clear()
-          @composerView.add message
-
-        @composerView.add new PlainMessageView
-          message: data
+      .on 'data', onData
 
     stderr.pipe new LineStream
       .pipe strs 'utf8'
-      .on 'data', (data) ->
-        console.error data
+      .on 'data', onData
