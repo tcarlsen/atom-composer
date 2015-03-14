@@ -1,7 +1,7 @@
 {
   "name": "composer",
   "main": "./lib/composer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Run Composer within Atom",
   "repository": "https://github.com/zimme/atom-composer",
   "license": "MIT",
