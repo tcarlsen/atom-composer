@@ -50,7 +50,7 @@ module.exports = Composer =
 
   deactivate: ->
     @subscriptions.dispose()
-    @composerView.destroy()
+    @composerView.detach()
 
   composer: (command) ->
     closeOnComplete = atom.config.get 'composer.closeOnComplete'
