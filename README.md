@@ -1,5 +1,7 @@
 [![Gitter](https://img.shields.io/badge/gitter-join_chat-brightgreen.svg)]
 (https://gitter.im/zimme/atom-composer)
+[![Travis](https://img.shields.io/travis/zimme/atom-composer.svg)]
+(https://travis-ci.org/zimme/atom-composer)
 
 # Composer for Atom
 
